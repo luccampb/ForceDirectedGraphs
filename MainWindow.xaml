@@ -1,0 +1,68 @@
+﻿<Window x:Class="Force_Directed_Graphs.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Force_Directed_Graphs"
+        
+        mc:Ignorable="d"
+        Title="Force Directed Graphs" Icon="Icons\runtime-icon.ico" MinHeight="450" MinWidth="800" Background="LightGray" ResizeMode="CanMinimize"
+        ContentRendered="Window_ContentRendered" Closing="Window_Closing" WindowState="Maximized">
+    <Grid Name="G1">
+        <Menu Margin="0,0" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="40" Width="Auto" Background="LightGray">
+            <MenuItem Header="_File" Height="30" Width="35" BorderBrush="Black">
+                <MenuItem Header="_New" Click="New_Click"/>
+                <MenuItem Header="_Save" Click="Save_Click"/>
+                <MenuItem Header="_Open" Click="Open_Click"/>
+                <MenuItem Header="_Export" Click="Export_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Edit" Height="30" Width="35" BorderBrush="Black">
+                <MenuItem Header="_Change Thickness" Click="EdgeThick_Click"/>
+                <MenuItem Header="_Change Size" Click="SizeThick_Click"/>
+                <MenuItem Header="_Change Colour" Click="ChangeColour_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Insert" Height="30" Width="40" BorderBrush="Black">
+                <MenuItem Header="_Text Box" Click="TBox_Click"/>
+                <MenuItem Header="_Image" Click="Image_Click"/>
+            </MenuItem>
+            <MenuItem Header="_View" Height="30" Width="35" BorderBrush="Black">
+                <MenuItem Header="Zoom In" Click="ZIn_Click"/>
+                <MenuItem Header="Zoom Out" Click="ZOut_Click"/>
+                <MenuItem Name="Direction" Header="_Force Direction" Click="Direction_Click" IsCheckable="True"/>
+                <MenuItem Header="_Snapping" IsCheckable="True" Click="Snap_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Help" Height="30" Width="40" BorderBrush="Black">
+                <MenuItem Header="View Documentation" Click="Doc_Click"/>
+            </MenuItem>
+        </Menu>
+        <ToolBarPanel  Margin="0,31" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="34" Width="Auto" Background ="LightGray">
+            <Menu Width="Auto" Background="LightGray" >
+                <Button Click="New_Click" ToolTip="New">
+                    <Image Source="Icons\Page.ico"/>
+                </Button>
+                <Button Click="Open_Click" ToolTip="Open">
+                    <Image Source="Icons\Folder.ico"/>
+                </Button>
+                <Button Click="Save_Click" ToolTip="Save">
+                    <Image Source="Icons\Save-As.ico"/>
+                </Button>
+                <Button Click="Font_Click" ToolTip="Choose Font">
+                    <Image Source="Icons\Font.ico"/>
+                </Button>
+                <TextBox Name="NodeBox" Text="60" TextChanged="NodeBox_TextChanged" ToolTip="Node Size (must be between 20 and 150)" LostKeyboardFocus="NodeBox_LostFocus" Width="40" BorderBrush="Black"/>
+                <TextBox Name="EdgeBox" Text="1.5" TextChanged="EdgeBox_TextChanged" ToolTip="Edge Thickness (must be between 0.5 and 15)" LostKeyboardFocus="EdgeBox_LostFocus" Width="40" BorderBrush="Black"/>
+                <Button Name="btnBold" Content ="B" Width="13" ToolTip="Bold" Click="Bold_Click"/>
+                <Button Name="btnUnderline" Width="13" Click="Underline_Click" ToolTip="Underline">
+                    <TextBlock><Underline>U</Underline></TextBlock>
+                </Button>
+                <Button Name="btnItalic" Width ="13" Click="Italic_Click" ToolTip="Italic">
+                    <TextBlock><Italic>I</Italic></TextBlock>
+                </Button>
+                <Button Name="colourButton" Content="     " Background="Black" Click="Colour_Click" ToolTip="Choose Colour"/>
+                <Button Name="Direction1" Content="Direct" Click="Direct_Click"/>
+                <Button Name="Traversal" Content="Traversal" Click="Traversal_Click"/>
+            </Menu>
+        </ToolBarPanel>
+    </Grid>
+    
+</Window>
